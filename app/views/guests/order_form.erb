@@ -1,0 +1,33 @@
+<div class="row row row-cols-1 row-cols-md-3 mb-3 text-center">
+  <div class="col"></div>
+  <div class="col align-self-center">
+    <div class="card mb-4 shadow-sm text-center md-auto">
+      <div class="card-header">
+        <h4 class="my-0 fw-normal">Запись</h4>
+      </div>
+      <div class="card-body">
+        <%= form_tag "/guests/add_to_db", method: :get do %>
+          <div class='field'>
+            <%= label_tag :name, "Имя" %>
+            <%= text_field_tag :name %>
+          </div>
+          <div class='field'>
+            <%= label_tag :surname, "Фамилия" %>
+            <%= text_field_tag :surname %>
+          </div>
+          <div class='actions'>
+            <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary") do %>
+              Записаться
+            <% end %>
+          </div>
+        <% end %>
+        <%= form_tag root_path, method: :get do %>
+          <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary") do %>
+            Назад
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>

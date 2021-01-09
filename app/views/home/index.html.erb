@@ -1,0 +1,140 @@
+
+<% if current_user %>
+  <main class="container mr-5 ml-5">
+  <div class="container ml-2">
+    <div class="row">
+      <div class="col-md-auto">
+
+        <div class="card mb-4 shadow-sm text-center justify-content-start md-auto">
+          <div class="card-header">
+            <h4 class="my-0 fw-normal">Пользователь</h4>
+          </div>
+          <div class="card-body">
+              <ul class="list-unstyled mt-3 mb-4">
+                <li><h5>Вы вошли как:</li>
+                <li><h5><%= current_user.email %></li>
+                <li><h5><p id=”notice”><%= notice %></p></li>
+              </ul>
+              <%= form_tag logout_path, method: :get do %>
+                <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary") do %>
+                  Выйти
+                <% end %>
+              <% end %>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm text-center justify-content-start md-auto">
+          <div class="card-header">
+            <h4 class="my-0 fw-normal">Следующее</br>выступление</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li><h5>Дата: </h5><p id="date_of_concert"><%= $date_of_concert %></p></li>
+              <li><h5>Место: </h5><%= $place_of_concert %></li>
+            </ul>
+            <%= form_tag "/guests/order_form", method: :get do %>
+              <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary") do %>
+                Записаться
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <%if current_user.is_admin %>
+          <div class="card mb-4 shadow-sm text-center justify-content-start md-auto">
+            <div class="card-header">
+              <h4 class="my-0 fw-normal">Изменить данные</h4>
+            </div>
+            <div class="card-body">
+              <%= form_tag "/home/change", method: :get do %>
+                <div class='field'>
+                  <%= label_tag :date, "Дата" %>
+                  <%= text_field_tag :date_of_conc %>
+                </div>
+                <div class='field'>
+                  <%= label_tag :place, "Место" %>
+                  <%= text_field_tag :place_of_conc %>
+                </div>
+                <div class='actions'>
+                  <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary") do %>
+                    Изменить
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+        <%end%>
+
+      </div>
+      <div class="col align-self-center">
+        <img src="/assets/banner.png" class="img-fluid">
+      </div>
+
+    </div>
+  </div>
+
+  </main>
+
+<% else %>
+  <main class="container mr-5 ml-5">
+  <div class="container ml-2">
+    <div class="row">
+      <div class="col-md-auto">
+
+        <div class="card mb-4 shadow-sm text-center justify-content-start md-auto">
+          <div class="card-header">
+            <h4 class="my-0 fw-normal">Вход</h4>
+          </div>
+          <div class="card-body">
+            <%= form_tag sessions_path do |form| %>
+              <div class='field'>
+                <%= label_tag :email %>
+                <%= text_field_tag :email %>
+              </div>
+              <div class='field'>
+                <%= label_tag :password %>
+                <%= password_field_tag :password %>
+              </div>
+              <div class='field'>
+                <p id=”notice”><%= notice %></p>
+              </div>
+
+              <div class='actions'>
+                <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary") do %>
+                  Войти
+                <% end %>
+              </div>
+            <% end %>
+            <%= form_tag signup_path, method: :get do %>
+              <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary") do %>
+                Зарегестрироваться
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm text-center justify-content-start md-auto">
+          <div class="card-header">
+            <h4 class="my-0 fw-normal">Следующее</br>выступление</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li><h5>Дата: </h5><p id="date_of_concert"><%= $date_of_concert %></p></li>
+              <li><h5>Место: </h5><%= $place_of_concert %></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <img src="/assets/banner.png" class="img-fluid">
+      </div>
+
+    </div>
+  </div>
+  </main>
+<% end %>
+
+
+
+
