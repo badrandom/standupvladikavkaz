@@ -11,8 +11,4 @@ class HomeController < ApplicationController
     $place_of_concert = place
     redirect_to root_path
   end
-
-  def init(date, place)
-
-  end
 end

@@ -71,6 +71,36 @@
       </div>
 
     </div>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center mt-5">
+      <div class="col"></div>
+      <div class="col">
+        <%@guests = Guest.all %>
+
+            <table class="table table-striped">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Дата выступления</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @guests.each do |guest| %>
+                <tr>
+                  <td><%= guest.email %></td>
+                  <td><%= guest.name %></td>
+                  <td><%= guest.surname %></td>
+                  <td><%= guest.date_of_concert %></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+
+
+      </div>
+      <div class="col"></div>
+    </div>
   </div>
 
   </main>
@@ -131,6 +161,7 @@
       </div>
 
     </div>
+
   </div>
   </main>
 <% end %>
