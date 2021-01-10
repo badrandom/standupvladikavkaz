@@ -62,8 +62,7 @@ canvas {
 }
 
 .scrollTop{
-
-    bottom:10px;
+    bottom:4px;
     left:48%;
 }
 .scrollTop:hover{
