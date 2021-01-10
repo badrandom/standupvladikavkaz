@@ -4,7 +4,7 @@ class GuestsController < ApplicationController
     name = params[:name]
     surname = params[:surname]
     date = $date_of_concert
-    cached_guest = Guest.find_or_initialize_by(email: email)
+    cached_guest = Guest.find_or_initialize_by(email: email, date_of_concert: date, name: name, surname: surname)
     if cached_guest.new_record?
       cached_guest.name = name
       cached_guest.surname = surname
@@ -12,7 +12,7 @@ class GuestsController < ApplicationController
       cached_guest.save!
       redirect_to root_path
     else
-      redirect_to root_path, notice: 'На данном аккаунте уже есть запись. Пожалуйста, создайте новый.'
+      redirect_to root_path, notice: 'Вы уже записались на это выступление'
     end
   end
 end

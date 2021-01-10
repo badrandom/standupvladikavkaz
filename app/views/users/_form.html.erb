@@ -31,18 +31,15 @@
     <%= form.check_box :is_admin %>
   </div> -->
 
-
-
-
   <div class="actions">
-    <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary") do %>
+    <%= button_tag(type: 'submit', class: "btn btn-lg btn-dark") do %>
     Create
   <% end %>
   </div>
 <% end %>
 <div class="back_route">
   <%= form_tag root_path, method: :get do %>
-    <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary") do %>
+    <%= button_tag(type: 'submit', class: "btn btn-lg btn-dark") do %>
       Back
     <% end %>
   <% end %>

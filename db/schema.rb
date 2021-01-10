@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_133538) do
+ActiveRecord::Schema.define(version: 2021_01_09_204353) do
 
   create_table "guests", force: :cascade do |t|
     t.string "email"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2021_01_09_133538) do
     t.string "date_of_concert"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_guests_on_email", unique: true
   end
 
   create_table "users", force: :cascade do |t|
