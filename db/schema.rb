@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_204353) do
+ActiveRecord::Schema.define(version: 2021_01_10_231048) do
+
+  create_table "concerts", force: :cascade do |t|
+    t.string "date_of_concert"
+    t.string "place_of_concert"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "guests", force: :cascade do |t|
     t.string "email"

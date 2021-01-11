@@ -52,7 +52,7 @@
             a.id = "gotop";
             a.className = "btn btn-sm btn-outline-light scrollTop";
             a.href = "#";
-            a.text = "Наверх"
+            a.text = "Up"
             a.style.display = "none";
             a.style.position = "fixed";
             a.style.zIndex = "9999";
@@ -124,17 +124,17 @@
 
         <div class="card mb-4 shadow-sm text-center justify-content-start md-auto bg-dark">
           <div class="card-header">
-            <h4 class="my-0 fw-normal">Пользователь</h4>
+            <h4 class="my-0 fw-normal"><%= t("headers.user") %></h4>
           </div>
           <div class="card-body">
               <ul class="list-unstyled mt-3 mb-4">
-                <li><h5>Вы вошли как:</h5></li>
+                <li><h5><%= t("headers.you_entered_as") %></h5></li>
                 <li><h5><%= current_user.email %></h5></li>
                 <li><h5><p style="color:red"><%= notice %></p></h5></li>
               </ul>
               <%= form_tag logout_path, method: :get do %>
                 <%= button_tag(type: 'submit', class: "btn btn-sm btn-outline-light") do %>
-                  Выйти
+                  <%= t("buttons.logout") %>
                 <% end %>
               <% end %>
           </div>
@@ -142,17 +142,17 @@
 
         <div class="card mb-4 shadow-sm text-center justify-content-start bg-dark md-auto">
           <div class="card-header">
-            <h4 class="my-0 fw-normal">Следующее</br>выступление</h4>
+            <h4 class="my-0 fw-normal"><%= t("headers.next") %></br><%= t("headers.concert") %></h4>
           </div>
           <div class="card-body">
             <ul class="list-unstyled mt-3 mb-4">
-              <li><h5>Дата: </h5><p id="date_of_concert"><%= $date_of_concert %></p></li>
-              <li><h5>Место: </h5><%= $place_of_concert %></li>
+              <li><h5><%= t("labels.date") %>: </h5><p id="date_of_concert"><%= $date_of_concert %></p></li>
+              <li><h5><%= t("labels.place") %>: </h5><%= $place_of_concert %></li>
 
             </ul>
             <%= form_tag "/guests/order_form", method: :get do %>
               <%= button_tag(type: 'submit', class: "btn btn-sm btn-outline-light") do %>
-                Записаться
+                <%= t("buttons.book") %>
               <% end %>
             <% end %>
           </div>
@@ -160,21 +160,21 @@
         <%if current_user.is_admin %>
           <div class="card mb-4 shadow-sm text-center justify-content-start md-auto bg-dark" >
             <div class="card-header">
-              <h4 class="my-0 fw-normal">Изменить данные</h4>
+              <h4 class="my-0 fw-normal"><%= t("headers.change_data") %></h4>
             </div>
             <div class="card-body">
-              <%= form_tag "/home/change", method: :get do %>
+              <%= form_tag "/concert/change", method: :get do %>
                 <div class='field'>
-                  <%= label_tag :date, "Дата" %>
+                  <%= label_tag :date, t("labels.date") %>
                   <%= text_field_tag :date_of_conc %>
                 </div>
                 <div class='field'>
-                  <%= label_tag :place, "Место" %>
+                  <%= label_tag :place, t("labels.place") %>
                   <%= text_field_tag :place_of_conc %>
                 </div>
                 <div class='actions'>
                   <%= button_tag(type: 'submit', class: "btn btn-sm btn-outline-light") do %>
-                    Изменить
+                    <%= t("buttons.change") %>
                   <% end %>
                 </div>
               <% end %>
@@ -186,15 +186,15 @@
           <table class="table table-light text-center">
             <thead class="thead-dark">
             <tr>
-              <th scope="col" colspan="4">Список бронирований</th>
+              <th scope="col" colspan="4"><%= t("headers.order_list") %></th>
             </tr>
             </thead>
             <thead class="thead-dark">
             <tr>
               <th scope="col">Email</th>
-              <th scope="col">Имя</th>
-              <th scope="col">Фамилия</th>
-              <th scope="col">Дата выступления</th>
+              <th scope="col"><%= t("headers.name") %></th>
+              <th scope="col"><%= t("headers.surname") %></th>
+              <th scope="col"><%= t("headers.date_of_concert") %></th>
             </tr>
             </thead>
             <tbody>
@@ -210,11 +210,19 @@
           </table>
 
         <%end%>
+        <div style="align-content: center" class="text-center">
+          <%= link_to "Русский", {locale: :ru} %>
+        </div>
+        <div style="align-content: center" class="text-center">
+          <%= link_to "English", {locale: :en} %>
+        </div>
 
       </div>
       <div class="col align-self-center">
         <img src="/assets/banner.png" class="img-fluid">
       </div>
+
+
 
       </div>
 
@@ -230,7 +238,7 @@
 
         <div class="card mb-4 shadow-sm text-center justify-content-start md-auto bg-dark">
           <div class="card-header">
-            <h4 class="my-0 fw-normal">Вход</h4>
+            <h4 class="my-0 fw-normal"><%= t("headers.authorization") %></h4>
             <br/>
           </div>
           <div class="card-body">
@@ -240,7 +248,7 @@
                 <%= text_field_tag :email %>
               </div>
               <div class='field'>
-                <%= label_tag :password %>
+                <%= label_tag :password, t("labels.password") %>
                 <%= password_field_tag :password %>
               </div>
               <div class='field'>
@@ -249,13 +257,13 @@
 
               <div class='actions'>
                 <%= button_tag(type: 'submit', class: "btn btn-sm btn-outline-light") do %>
-                  Войти
+                  <%= t("buttons.login") %>
                 <% end %>
               </div>
             <% end %>
             <%= form_tag signup_path, method: :get do %>
               <%= button_tag(type: 'submit', class: "btn btn-sm btn-outline-light") do %>
-                Зарегестрироваться
+                <%= t("buttons.signup") %>
               <% end %>
             <% end %>
           </div>
@@ -263,20 +271,27 @@
 
         <div class="card mb-4 shadow-sm text-center bg-dark justify-content-start md-auto">
           <div class="card-header">
-            <h4 class="my-0 fw-normal">Следующее</br>выступление</h4>
+            <h4 class="my-0 fw-normal"><%= t("headers.next") %></br><%= t("headers.concert") %></h4>
           </div>
           <div class="card-body">
             <ul class="list-unstyled mt-3 mb-4">
-              <li><h5>Дата: </h5><p id="date_of_concert"><%= $date_of_concert %></p></li>
-              <li><h5>Место: </h5><%= $place_of_concert %></li>
+              <li><h5><%= t("labels.date") %>: </h5><p id="date_of_concert"><%= $date_of_concert %></p></li>
+              <li><h5><%= t("labels.place") %>: </h5><%= $place_of_concert %></li>
             </ul>
 
           </div>
+        </div>
+        <div style="align-content: center" class="text-center">
+          <%= link_to "Русский", {locale: :ru} %>
+        </div>
+        <div style="align-content: center" class="text-center">
+          <%= link_to "English", {locale: :en} %>
         </div>
       </div>
       <div class="col align-self-center">
         <img src="/assets/banner.png" class="img-fluid">
       </div>
+
 
     </div>
 
@@ -288,8 +303,8 @@
   <div class="container mt-1">
     <div class="row ">
       <div class="col-md-12 mt-1 mb-4 text-center">
-        <h1>Ждем вас!</h1>
-        <h4>Для связи:</h4>
+        <h1><%= t("headers.waiting_for_you") %></h1>
+        <h4><%= t("headers.contact_us") %></h4>
         <h4>harris.thom@yandex.ru</h4>
         <p id="upbutton"></p>
         <p class="social-icons-header">

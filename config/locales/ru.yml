@@ -1,0 +1,64 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+ru:
+  headers:
+    user: "Пользователь"
+    change_data: "Изменить данные"
+    order_list: "Список бронирований"
+    name: "Имя"
+    surname: "Фамилия"
+    date_of_concert: "Дата выступления"
+    authorization: "Вход"
+    you_entered_as: "Вы вошли как:"
+    next: "Следующее"
+    concert: "Выступление"
+    waiting_for_you: "Ждем вас!"
+    contact_us: "Для связи:"
+    book_a_ticket: "Запись"
+    new_user: "Новый пользователь"
+    language: "Язык"
+
+  buttons:
+    logout: "Выйти"
+    book: "Записаться"
+    change: "Изменить"
+    login: "Войти"
+    signup: "Зарегестрироваться"
+    back: "Назад"
+    create: "Создать"
+    up: "Наверх"
+
+  labels:
+    date: "Дата"
+    place: "Место"
+    password: "Пароль"
+    password_confirmation: "Подтверждение пароля"

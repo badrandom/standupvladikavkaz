@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
+#internationalization
+gem 'rails-i18n', '~> 6.0.0'
 # Adding Bootstrap library
 gem  'bootstrap', 	'~> 	4.0.0.alpha6'
 gem 'jquery-rails'

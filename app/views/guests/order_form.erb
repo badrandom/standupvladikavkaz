@@ -3,27 +3,27 @@
   <div class="col align-self-center">
     <div class="card mb-4 shadow-sm text-center md-auto">
       <div class="card-header">
-        <h4 class="my-0 fw-normal">Запись</h4>
+        <h4 class="my-0 fw-normal"><%= t("headers.book_a_ticket") %></h4>
       </div>
       <div class="card-body">
         <%= form_tag "/guests/add_to_db", method: :get do %>
           <div class='field'>
-            <%= label_tag :name, "Имя" %>
+            <%= label_tag :name, t("headers.name") %>
             <%= text_field_tag :name %>
           </div>
           <div class='field'>
-            <%= label_tag :surname, "Фамилия" %>
+            <%= label_tag :surname, t("headers.surname") %>
             <%= text_field_tag :surname %>
           </div>
           <div class='actions'>
             <%= button_tag(type: 'submit', class: "btn btn-lg btn-dark") do %>
-              Записаться
+              <%= t("buttons.book") %>
             <% end %>
           </div>
         <% end %>
         <%= form_tag root_path, method: :get do %>
           <%= button_tag(type: 'submit', class: "btn btn-lg btn-dark") do %>
-            Назад
+            <%= t("buttons.back") %>
           <% end %>
         <% end %>
       </div>

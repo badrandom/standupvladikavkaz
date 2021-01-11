@@ -30,4 +30,36 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  headers:
+    user: "User"
+    change_data: "Change data"
+    order_list: "Order list"
+    name: "Name"
+    surname: "Surname"
+    date_of_concert: "Date of concert"
+    authorization: "Authorization"
+    you_entered_as: "You logged in as:"
+    next: "Next"
+    concert: "Concert"
+    waiting_for_you: "Waiting for you!"
+    contact_us: "Contact us:"
+    book_a_ticket: "Book a ticket"
+    new_user: "New user"
+    language: "Language"
+
+    buttons:
+      logout: "Log out"
+      book: "Book"
+      change: "Change"
+      login: "Log in"
+      signup: "Sign up"
+      back: "Back"
+      create: "Create"
+      up: "Up"
+
+    labels:
+      date: "Date"
+      place: "Place"
+      password: "password"
+      password_confirmation: "Password confirmation"
+
